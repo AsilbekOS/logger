@@ -34,7 +34,7 @@ func UseLogger() *Logger {
 			EncodeTime: func(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
 				enc.AppendString(t.Format("2006-01-02 15:04:05"))
 			},
-			EncodeCaller: zapcore.ShortCallerEncoder, // fayl nomi + qator raqamini qisqa formatda chiqarish
+			EncodeCaller: zapcore.FullCallerEncoder, // fayl nomi + qator raqamini qisqa formatda chiqarish
 		},
 	}
 
