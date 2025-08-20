@@ -39,7 +39,7 @@ func UseLogger() *Logger {
 	}
 
 	// config asosida logger yaratish
-	logger, err := cfg.Build()
+	logger, err := cfg.Build(zap.AddCaller(), zap.AddCallerSkip(1))
 	if err != nil {
 		panic(err) // logger yaratishda xato bo‘lsa dastur to‘xtaydi
 	}
@@ -58,7 +58,7 @@ func (l *Logger) Close() {
 
 // Info darajadagi log yozish
 //
-//	 Qo'shimcha maydonlar bilan ma'lumot xabarini kiriting
+//	 Qo`shimcha maydonlar bilan ma`lumot xabarini kiriting
 //		logger.Info("User logged in",
 //			zap.String("username", "johndoe"),
 //			zap.Int("user_id", 42),
@@ -71,7 +71,7 @@ func (l *Logger) Info(msg string, fields ...zap.Field) {
 
 // Error darajadagi log yozish
 //
-//	 Qo'shimcha maydonlar bilan xatolik xabarini kiriting
+//	 Qo`shimcha maydonlar bilan xatolik xabarini kiriting
 //		logger.Error("Failed to process request",
 //			zap.String("request_id", "12345"),
 //
