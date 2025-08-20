@@ -1,3 +1,6 @@
+// Shu taritib yozishni boshlang.
+// logger.UseLogger()
+// defer logger.Close()
 package logger
 
 import (
@@ -57,11 +60,21 @@ func Close() {
 // Info darajadagi log yozish
 func Info(msg string, fields ...zap.Field) {
 	log.Info(msg, fields...)
+	//  Qo'shimcha maydonlar bilan ma'lumot xabarini kiriting
+	// 	logger.Info("User logged in",
+	// 		zap.String("username", "johndoe"),
+	// 		zap.Int("user_id", 42),
+	// 		zap.String("role", "admin"),
+	// )
 }
 
 // Error darajadagi log yozish
 func Error(msg string, fields ...zap.Field) {
 	log.Error(msg, fields...)
+	// Qo'shimcha maydonlar bilan xatolik xabarini kiriting
+	// logger.Error("Failed to process request",
+	// 		zap.String("request_id", "12345"),
+	// )
 }
 
 // Warn darajadagi log yozish
